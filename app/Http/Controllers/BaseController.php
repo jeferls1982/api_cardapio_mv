@@ -56,7 +56,7 @@ class BaseController extends Controller implements IRepository
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request,$id)
     {
         return $this->repository->update($id);
     }
@@ -71,5 +71,5 @@ class BaseController extends Controller implements IRepository
     {
         return $this->repository->destroy($id);
     }
-    
+
 }

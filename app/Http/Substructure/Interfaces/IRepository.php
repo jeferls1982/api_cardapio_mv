@@ -12,9 +12,9 @@ Interface IRepository {
 
     public function show($id);
 
-    public function update($id);
+    public function update(Request $request,$id);
 
-    public function destroy($id);   
+    public function destroy($id);
 
 
 }

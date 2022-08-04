@@ -33,9 +33,9 @@ class BaseRepository
         return new $this->resource(($this->model::find($id)));
     }
 
-    public function update($id)
+    public function update(array $values,$id)
     {
-        $this->model::where('id', $id)->update(request()->all());
+        $this->model::where('id', $id)->update($values);
         return new $this->resource($this->model::find($id));
     }
 
