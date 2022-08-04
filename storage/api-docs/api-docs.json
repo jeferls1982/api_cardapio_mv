@@ -1,0 +1,680 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Booklab - backend",
+        "description": "Booklab project API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/cardapios?with[]=items": {
+            "get": {
+                "tags": [
+                    "Cardapios"
+                ],
+                "summary": "Listagem de cardápios",
+                "description": "Get Cardapio",
+                "operationId": "4a0393cfedc241ea8815c4d61c093cba",
+                "responses": {
+                    "default": {
+                        "description": "List Cardapios"
+                    }
+                }
+            }
+        },
+        "/api/cardapios": {
+            "post": {
+                "tags": [
+                    "Cardapios"
+                ],
+                "summary": "Add new Cardapio",
+                "operationId": "61c6eaf598f5fb97bf9557b8021184ab",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "titulo": {
+                                        "type": "string"
+                                    },
+                                    "descricao": {
+                                        "type": "string"
+                                    },
+                                    "foto": {
+                                        "type": "string"
+                                    },
+                                    "preco": {
+                                        "type": "decimal"
+                                    },
+                                    "categoria_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "titulo": "Almoço",
+                                    "descricao": "Prato Feito",
+                                    "foto": "imagem.jpg",
+                                    "preco": 1.89,
+                                    "categoria_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/cardapios/{id}?with[]=categoria&with[]=items": {
+            "get": {
+                "tags": [
+                    "Cardapios"
+                ],
+                "summary": "Mostra Cardápio e items do cardápio",
+                "description": "Show Cardápio",
+                "operationId": "ab20029f25c3d3c440c9824a0d2b75e0",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/cardapios/{id}": {
+            "put": {
+                "tags": [
+                    "Cardapios"
+                ],
+                "summary": "Updates a Cardapio",
+                "operationId": "2f3befdb38897a563b5c1f34ba9a8c02",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update Cardapio",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "estado_id",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "titulo": {
+                                        "type": "string"
+                                    },
+                                    "descricao": {
+                                        "type": "string"
+                                    },
+                                    "foto": {
+                                        "type": "string"
+                                    },
+                                    "preco": {
+                                        "type": "decimal"
+                                    },
+                                    "categoria_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "titulo": "Almoço",
+                                    "descricao": "Prato Feito",
+                                    "foto": "imagem.jpg",
+                                    "preco": 1.89,
+                                    "categoria_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Cardapios"
+                ],
+                "summary": "Delete Cardapio",
+                "description": "Delete Cardapio",
+                "operationId": "214b9550e21f5164d13a37f728b3471a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/cardapio-items": {
+            "get": {
+                "tags": [
+                    "CardapioItems"
+                ],
+                "summary": "Listagem de CardapioItems",
+                "description": "Get CardapiItems",
+                "operationId": "c2b73cd56a6dce30004b285dde4a9469",
+                "responses": {
+                    "default": {
+                        "description": "List Items"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "CardapioItems"
+                ],
+                "summary": "Add new",
+                "description": "Relacionar um item a um cardapio",
+                "operationId": "50a7599181b6a15ec4c59d4a8442373d",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "item_id": {
+                                        "type": "integer"
+                                    },
+                                    "cardapio_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "item_id": 1,
+                                    "cardapio_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/cardapio-items/{id}": {
+            "get": {
+                "tags": [
+                    "CardapioItems"
+                ],
+                "summary": "show",
+                "description": "Show CardapioItems",
+                "operationId": "7e983ce772108568ef42cb6727cc2045",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "CardapioItems"
+                ],
+                "summary": "Updates a CardapioItems",
+                "operationId": "cc4bc234725fabe8e02ab8a4f4f307b8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "item_id",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "item_id": {
+                                        "type": "integer"
+                                    },
+                                    "cardapio_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "item_id": 1,
+                                    "cardapio_id": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "CardapioItems"
+                ],
+                "summary": "Delete CardapioItems",
+                "description": "Delete CardapioItems",
+                "operationId": "113526bf5596732f7f3e2a5901f8ee57",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/categorias?with[]=cardapios": {
+            "get": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Listagem de categorias",
+                "description": "Get Categorias",
+                "operationId": "58121d3ee8126893b0e997c9397581eb",
+                "responses": {
+                    "default": {
+                        "description": "List Categorias"
+                    }
+                }
+            }
+        },
+        "/api/categorias": {
+            "post": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Add new Categoria",
+                "operationId": "7bf305bf13c77a93af29f16d53e3d6de",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "nome": "Saída"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/categorias/{id}?with[]=cardapios": {
+            "get": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Mostra Categorias e cardápios relacionados",
+                "description": "Show Categoria",
+                "operationId": "b40ae9b12c1dbc229bedbd48c5fce4b4",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/categorias/{id}": {
+            "put": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Updates a Categoria",
+                "operationId": "10e328fae70571e433bffe3e57bf6e51",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update Categoria",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "categoria_id",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "nome": "Saída"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Categorias"
+                ],
+                "summary": "Delete Categoria",
+                "description": "Delete Categoria",
+                "operationId": "1babc7590157b13bebe0bfd683a029b2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/items?with[]=cardapios": {
+            "get": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Listagem de items e cardapios relacionados",
+                "description": "Get Items",
+                "operationId": "7faabcde74d9ed139fa9d3e9a2281cbb",
+                "responses": {
+                    "default": {
+                        "description": "List Items"
+                    }
+                }
+            }
+        },
+        "/api/items": {
+            "post": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Add new Item",
+                "description": "Add Item",
+                "operationId": "3c8ff4095ad9d715e12b71a43d40efc2",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "nome": "Pão"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/items/{id}?with[]=cardapios": {
+            "get": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Mostra o item e em qual cardápio ele está presente",
+                "description": "Show Item",
+                "operationId": "3058b4858d6c10ba68299f25ab92d537",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/items/{id}": {
+            "put": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Updates a Item",
+                "operationId": "fc2564bef445e18b2f88e9b0232b5aba",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update Item",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "item_id",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nome": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "nome": "pão"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Items"
+                ],
+                "summary": "Delete Items",
+                "description": "Delete Items",
+                "operationId": "947885a9b94d3ad29b8c5f939da35748",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Parameter ",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "examples": {
+                            "int": {
+                                "summary": "An int value.",
+                                "value": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
