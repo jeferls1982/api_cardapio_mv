@@ -29,7 +29,7 @@ class CardapioController extends BaseController
     public function index()
     {
         return $this->repository->list();
-   }
+    }
 
     /**
      * @OA\Post(
@@ -77,7 +77,6 @@ class CardapioController extends BaseController
         $sanitized = $request->all();
         return $this->repository->store($sanitized);
     }
-
 
     /**
      * @OA\Get(
