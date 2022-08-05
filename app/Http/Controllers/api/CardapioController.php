@@ -148,6 +148,7 @@ class CardapioController extends BaseController
      * )
      */
 
+
     public function update(Request $request, $id)
     {
         $sanitized = $request->all();
