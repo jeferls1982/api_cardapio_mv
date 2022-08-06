@@ -26,6 +26,7 @@ class CardapioRepository  extends BaseRepository{
         foreach ($list as $item) {
             $item = $this->getImage($item);
         }
+
         return $list;
     }
 
