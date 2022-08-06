@@ -15,6 +15,7 @@ class CardapioController extends BaseController
     {
         parent::__construct($service, $repository);
         $this->service = $service;
+
     }
     /**
      * @OA\Get(
