@@ -35,6 +35,7 @@ class CategoriasController extends BaseController
      * @OA\Post(
      *     path="/api/categorias",
      *     summary="Add new Categoria",
+     *     security={{"bearerAuth":{}}},
      *     tags={"Categorias"},
      *     @OA\RequestBody(
      *         @OA\MediaType(
@@ -89,6 +90,7 @@ class CategoriasController extends BaseController
      * @OA\Put(
      *     path="/api/categorias/{id}",
      *     summary="Updates a Categoria",
+     *     security={{"bearerAuth":{}}},
      *     tags={"Categorias"},
      *     @OA\Parameter(
      *         description="Update Categoria",
@@ -127,6 +129,7 @@ class CategoriasController extends BaseController
      *     path="/api/categorias/{id}",
      *     summary="Delete Categoria",
      *     description="Delete Categoria",
+     *     security={{"bearerAuth":{}}},
      *     tags={"Categorias"},
      *     @OA\Parameter(
      *         description="Parameter ",

@@ -35,6 +35,7 @@ class CardapioController extends BaseController
      * @OA\Post(
      *     path="/api/cardapios",
      *     summary="Add new Cardapio",
+     *     security={{"bearerAuth":{}}},
      *     tags={"Cardapios"},
      *     @OA\RequestBody(
      *         @OA\MediaType(
@@ -105,6 +106,7 @@ class CardapioController extends BaseController
      * @OA\Put(
      *     path="/api/cardapios/{id}",
      *     summary="Updates a Cardapio",
+     *     security={{"bearerAuth":{}}},
      *     tags={"Cardapios"},
      *     @OA\Parameter(
      *         description="Update Cardapio",
@@ -160,6 +162,7 @@ class CardapioController extends BaseController
      * @OA\Delete(
      *     path="/api/cardapios/{id}",
      *     summary="Delete Cardapio",
+     *     security={{"bearerAuth":{}}},
      *     description="Delete Cardapio",
      *     tags={"Cardapios"},
      *     @OA\Parameter(

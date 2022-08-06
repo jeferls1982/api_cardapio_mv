@@ -40,6 +40,7 @@ class ItemController extends BaseController
      * @OA\Post(
      *     path="/api/items",
      *     summary="Add new Item",
+     *     security={{"bearerAuth":{}}},
      *     tags={"Items"},
      *     description="Add Item",
      *     @OA\RequestBody(
@@ -97,6 +98,7 @@ class ItemController extends BaseController
      *     path="/api/items/{id}",
      *     summary="Updates a Item",
      *     tags={"Items"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         description="Update Item",
      *         in="path",
@@ -135,6 +137,7 @@ class ItemController extends BaseController
      *     summary="Delete Items",
      *     description="Delete Items",
      *     tags={"Items"},
+     *     security={{"bearerAuth":{}}},
      *     @OA\Parameter(
      *         description="Parameter ",
      *         in="path",

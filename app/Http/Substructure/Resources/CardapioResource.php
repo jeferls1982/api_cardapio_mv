@@ -14,6 +14,12 @@ class CardapioResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($this);
+        return [
+            "titulo" =>$this->titulo,
+            "descricao" =>$this->descricaodescricao,
+            "preco" =>$this->preco,
+            "categoria_id" =>$this->categoria_id,
+            "foto" =>$this->foto
+        ];
     }
 }
