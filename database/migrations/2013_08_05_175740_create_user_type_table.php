@@ -15,8 +15,12 @@ class CreateUserTypeTable extends Migration
     {
         Schema::create('user_type', function (Blueprint $table) {
             $table->id();
+            $table->string("tipo");
             $table->timestamps();
         });
+
+        DB::table('user_type')->insert(array('tipo' => 'admin'));
+        DB::table('user_type')->insert(array('tipo' => 'usuario'));
     }
 
     /**
