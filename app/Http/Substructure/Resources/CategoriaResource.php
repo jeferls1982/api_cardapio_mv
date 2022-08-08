@@ -14,6 +14,7 @@ class CategoriaResource extends JsonResource
      */
     public function toArray($request)
     {
+
         return [
             "id" => $this->id ?? null,
             "nome" => $this->nome ?? null,

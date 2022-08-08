@@ -16,10 +16,10 @@ class Items extends Model
         return $this->hasManyThrough(
             Cardapio::class,
             CardapioItems::class,
-            "item_id",
+            "cardapio_id",
             "id",
             "id",
-            "cardapio_id"
+            "item_id"
         );
     }
 }

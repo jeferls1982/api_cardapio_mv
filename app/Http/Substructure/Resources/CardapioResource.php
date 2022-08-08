@@ -15,6 +15,7 @@ class CardapioResource extends JsonResource
      */
     public function toArray($request)
     {
+//        dd($this);
         try {
             $file = Storage::disk('local')->get($this->foto);
             $this->foto = base64_encode($file);
@@ -34,7 +35,7 @@ class CardapioResource extends JsonResource
             "preco" => $this->preco,
             "categoria_id" => $this->categoria_id,
             "categoria" => new CategoriaResource($this->whenLoaded('categoria')),
-            "items" => new CategoriaResource($this->whenLoaded('items')),
+            "items" => ItemsResource::collection($this->whenLoaded('items')),
             "foto" => $this->foto
         ];
     }
