@@ -21,19 +21,13 @@ class CardapioRepository  extends BaseRepository{
 
     public function list()
     {
-        $list = parent::list();
-        foreach ($list as $item) {
-            try {
 
-                $file = Storage::disk('local')->get($item->foto);
-                $item->foto = base64_encode($file);
-            } catch (\Exception $ex) {
-                $item->foto = null;
-            }
+        if(request()['with']){
+            $list =  $this->model::with(request()['with'])->get();
+
+        }else{
+            $list = parent::list();
         }
-
-
-
         return CardapioResource::collection($list);
     }
 
@@ -58,7 +52,7 @@ class CardapioRepository  extends BaseRepository{
         }else{
             $cardapio = $this->model::find($id);
         }
-        $cardapio = $this->getImage($cardapio);
+
         return new $this->resource($cardapio);
     }
 

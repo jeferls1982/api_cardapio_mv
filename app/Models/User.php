@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use http\Env\Request;
+
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','user_type'
     ];
 
     /**
@@ -40,6 +41,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    public function type(){
+        return $this->belongsTo(UserType::class, "user_type");
+    }
 
 
 }

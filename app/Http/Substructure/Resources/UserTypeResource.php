@@ -4,7 +4,7 @@ namespace App\Http\Substructure\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ItemsResource extends JsonResource
+class UserTypeResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,11 +14,7 @@ class ItemsResource extends JsonResource
      */
     public function toArray($request)
     {
-//        dd($this);
-        return [
-            "id" => $this->id ?? null,
-            "nome" => $this->nome ?? null,
-            "cardapios" => new CardapioResource($this->whenLoaded('cardapios'))
-        ];
+
+        return parent::toArray($this);
     }
 }

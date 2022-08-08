@@ -30,6 +30,16 @@ Route::get('/user', "App\Http\Controllers\UserController@getUserLogged")->middle
 
 
 //-----------------------------------------api cardápio
+Route::get('/users', "App\Http\Controllers\UserController@index");
+Route::get('/users/{id}', "App\Http\Controllers\UserController@show");
+Route::post('/users', "App\Http\Controllers\UserController@store")->middleware("auth:sanctum");
+Route::put('/users/{id}', "App\Http\Controllers\UserController@update")->middleware("auth:sanctum");
+Route::delete('/users/{id}', "App\Http\Controllers\UserController@destroy")->middleware("auth:sanctum");
+
+
+
+
+
 Route::get('/items', "App\Http\Controllers\api\ItemController@index");
 Route::get('/items/{id}', "App\Http\Controllers\api\ItemController@show");
 Route::post('/items', "App\Http\Controllers\api\ItemController@store")->middleware("auth:sanctum");
