@@ -22,19 +22,13 @@ class CardapioRepository  extends BaseRepository{
     public function list()
     {
         $list = parent::list();
-
-
-
         foreach ($list as $item) {
             try {
 
                 $file = Storage::disk('local')->get($item->foto);
                 $item->foto = base64_encode($file);
-
-
             } catch (\Exception $ex) {
                 $item->foto = null;
-
             }
         }
 
