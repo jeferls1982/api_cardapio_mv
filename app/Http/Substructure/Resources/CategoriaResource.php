@@ -14,6 +14,10 @@ class CategoriaResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($this);
+        return [
+            "id" => $this->id ?? null,
+            "nome" => $this->nome ?? null,
+            "cardapios" => CardapioResource::collection($this->whenLoaded('cardapios')) ?? null,
+        ];
     }
 }
