@@ -23,13 +23,24 @@ class CardapioRepository  extends BaseRepository{
     {
         $list = parent::list();
 
+
+
         foreach ($list as $item) {
-            $item = $this->getImage($item);
+            try {
+
+                $file = Storage::disk('local')->get($item->foto);
+                $item->foto = base64_encode($file);
+
+
+            } catch (\Exception $ex) {
+                $item->foto = null;
+
+            }
         }
 
 
-//        dd($list);
-        return $list;
+
+        return CardapioResource::collection($list);
     }
 
 
@@ -55,6 +66,21 @@ class CardapioRepository  extends BaseRepository{
         }
         $cardapio = $this->getImage($cardapio);
         return new $this->resource($cardapio);
+    }
+
+
+
+    public function update(array $values, $id)
+    {
+        $base = explode(';', $values["foto"]);
+        if (count($base) > 1) {
+            $values["foto"] = str_replace('base64,', '', $base[1]);
+        }
+        $path = now()->timestamp . $values["titulo"];
+        $file = Storage::disk("local")->put($path, base64_decode($values["foto"]));
+        $values["foto"] = $path;
+
+        return parent::update($values,$id);
     }
 
 
