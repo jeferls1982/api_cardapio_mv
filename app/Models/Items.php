@@ -9,7 +9,7 @@ class Items extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["nome"];
+    protected $fillable = ["nome", 'calorias'];
 
 
     public function cardapios(){

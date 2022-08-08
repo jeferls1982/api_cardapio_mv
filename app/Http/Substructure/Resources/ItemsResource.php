@@ -16,8 +16,9 @@ class ItemsResource extends JsonResource
     {
 //        dd($this);
         return [
-            "id" => $this->item->id ?? null,
-            "nome" => $this->item->nome ?? null,
+            "id" => $this->id ?? $this->item->id ?? null,
+            "nome" =>$this->nome ??$this->item->nome ?? null,
+            "calorias" =>$this->calorias ??$this->item->calorias ?? null,
 //            "cardapios" => new CardapioResource($this->whenLoaded('cardapios')) ?? null
         ];
     }

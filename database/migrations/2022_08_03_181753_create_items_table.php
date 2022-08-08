@@ -16,12 +16,13 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string("nome");
+            $table->decimal("calorias");
             $table->timestamps();
         });
 
-        DB::table('items')->insert(array('nome' => 'feijão'));
-        DB::table('items')->insert(array('nome' => 'arroz'));
-        DB::table('items')->insert(array('nome' => 'pao'));
+        DB::table('items')->insert(array('nome' => 'feijão', 'calorias' => 156.5));
+        DB::table('items')->insert(array('nome' => 'arroz', 'calorias' => 120.5));
+        DB::table('items')->insert(array('nome' => 'pao', 'calorias' => 256.5));
     }
 
     /**
