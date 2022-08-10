@@ -27,8 +27,8 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "email": "musk@email.com",
-                                    "password": "password1234"
+                                    "email": "admin@email.com",
+                                    "password": "1234"
                                 }
                             }
                         }

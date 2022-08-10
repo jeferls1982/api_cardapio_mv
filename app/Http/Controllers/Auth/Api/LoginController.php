@@ -31,7 +31,7 @@ class LoginController extends Controller
      *                     property="password",
      *                     type="string"
      *                 ),
-     *                 example={"email": "musk@email.com","password": "password1234"}
+     *                 example={"email": "admin@email.com","password": "1234"}
      *             )
      *         )
      *     ),
@@ -42,11 +42,12 @@ class LoginController extends Controller
      *     )
      * )
      */
-    public function login(Request $request){
-        $credentials = $request->only('email','password');
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
 
-        if(!auth()->attempt($credentials))
-            abort(401,"Invalid Credentials");
+        if (!auth()->attempt($credentials))
+            abort(401, "Invalid Credentials");
 
         $token = auth()->user()->createToken("auth_token");
 
@@ -76,10 +77,11 @@ class LoginController extends Controller
      *     )
      * )
      */
-    public function logout(){
+    public function logout()
+    {
         auth()->user()->tokens()->delete(); //remove todos os tokens
 
-       // auth()->user()->currentAccessToken()->delete(); // remove o da requisição
+        // auth()->user()->currentAccessToken()->delete(); // remove o da requisição
     }
 
     /**
@@ -106,6 +108,4 @@ class LoginController extends Controller
      *     )
      * )
      */
-
 }
-
