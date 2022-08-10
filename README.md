@@ -6,4 +6,4 @@
 
 
 <p>Para rodar o projeto localmente, abra um terminal e rode o comando</p>
-<p><code>git clone</code></p>
+<p><code>git clone https://github.com/jeferls1982/api_cardapio_mv.git</code></p>
