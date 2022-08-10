@@ -24,7 +24,7 @@ class CreateCardapioItemsTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('cardapio_items')->insert(array('item_id' => 1, 'cardapio_id' => 1));
+        //DB::table('cardapio_items')->insert(array('item_id' => 1, 'cardapio_id' => 1));
     }
 
     /**

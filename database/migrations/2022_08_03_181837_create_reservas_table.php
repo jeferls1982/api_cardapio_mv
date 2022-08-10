@@ -26,7 +26,7 @@ class CreateReservasTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('reservas')->insert(array('data' => 'hoje', 'hora' => '15h', 'nome_reserva' => 'Jeferson','qtd_pessoas' => 5, 'contato' => "jeferson", 'cardapio_id' => 1 ));
+        //DB::table('reservas')->insert(array('data' => 'hoje', 'hora' => '15h', 'nome_reserva' => 'Jeferson','qtd_pessoas' => 5, 'contato' => "jeferson", 'cardapio_id' => 1 ));
     }
 
     /**

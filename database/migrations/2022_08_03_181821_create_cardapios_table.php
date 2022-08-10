@@ -27,9 +27,9 @@ class CreateCardapiosTable extends Migration
         });
 
 
-        DB::table('cardapios')->insert(array('titulo' => 'Almoço', 'descricao' => 'Almoço', 'foto' => 'Almoço','preco' => 1.99, 'categoria_id' => 1));
-        DB::table('cardapios')->insert(array('titulo' => 'janta', 'descricao' => 'janta', 'foto' => 'janta','preco' => 10.99, 'categoria_id' => 2));
-        DB::table('cardapios')->insert(array('titulo' => 'cafe', 'descricao' => 'cafe', 'foto' => 'cafe','preco' => 0.99, 'categoria_id' => 3));
+        // DB::table('cardapios')->insert(array('titulo' => 'Almoço', 'descricao' => 'Almoço', 'foto' => 'Almoço','preco' => 1.99, 'categoria_id' => 1));
+        // DB::table('cardapios')->insert(array('titulo' => 'janta', 'descricao' => 'janta', 'foto' => 'janta','preco' => 10.99, 'categoria_id' => 2));
+        //DB::table('cardapios')->insert(array('titulo' => 'cafe', 'descricao' => 'cafe', 'foto' => 'cafe','preco' => 0.99, 'categoria_id' => 3));
     }
 
     /**
