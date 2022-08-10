@@ -5,10 +5,12 @@
 <p>Endereço do swagger da API <code>https://apicardapios.herokuapp.com/api/doc</code></p>
 
 
-<p>1 - Para rodar o projeto localmente, abra um terminal e rode o comando</p>
+<p>1 - Para rodar o projeto localmente, abra um terminal e rode os comandos</p>
 <p><code>git clone https://github.com/jeferls1982/api_cardapio_mv.git</code></p>
 
 <p>2 - <code>cd api_cardapio_mv</code></p>
 
 <p>3 - <code>composer install</code></p>
+
+<p>4 - <code>php artisan serve --port=9000</code></p>
 
