@@ -17,10 +17,10 @@ class CreateCardapioItemsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('item_id')->nullable();
-            $table->foreign('item_id')->references('id')->on('items');
+            $table->foreign('item_id')->references('id')->on('items')->onDelete("cascade");
 
             $table->unsignedBigInteger('cardapio_id')->nullable();
-            $table->foreign('cardapio_id')->references('id')->on('cardapios');
+            $table->foreign('cardapio_id')->references('id')->on('cardapios')->onDelete("cascade");
             $table->timestamps();
         });
 

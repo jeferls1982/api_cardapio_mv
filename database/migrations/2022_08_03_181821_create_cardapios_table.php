@@ -21,7 +21,7 @@ class CreateCardapiosTable extends Migration
             $table->decimal("preco");
 
             $table->unsignedBigInteger('categoria_id')->nullable();
-            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
 
             $table->timestamps();
         });

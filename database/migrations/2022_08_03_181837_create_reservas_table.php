@@ -22,7 +22,7 @@ class CreateReservasTable extends Migration
             $table->string("contato");
 
             $table->unsignedBigInteger('cardapio_id')->nullable();
-            $table->foreign('cardapio_id')->references('id')->on('cardapios');
+            $table->foreign('cardapio_id')->references('id')->on('cardapios')->onDelete('cascade');
             $table->timestamps();
         });
 

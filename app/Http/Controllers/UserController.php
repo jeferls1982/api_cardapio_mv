@@ -12,7 +12,6 @@ class UserController extends BaseController
     {
         parent::__construct($service, $repository);
         $this->service = $service;
-
     }
 
 
@@ -26,22 +25,23 @@ class UserController extends BaseController
      *     @OA\Response(response="default", description="List Cardapios")
      * )
      */
-    public function getUserLogged(Request $request){
+    public function getUserLogged(Request $request)
+    {
         return $request->user();
     }
 
 
-//    public function index(){
-//        return $this->repository->list();
-//    }
-//
+    //    public function index(){
+    //        return $this->repository->list();
+    //    }
+    //
 
     public function update(Request $request, $id)
     {
         $sanitized = $request->all();
 
         $test = $sanitized['password'] ?? null;
-        if($test){
+        if ($test) {
             $sanitized['password'] = bcrypt($sanitized['password']);
         }
 
@@ -50,5 +50,14 @@ class UserController extends BaseController
         return $this->repository->update($sanitized, $id);
     }
 
+    public function store(Request $request)
+    {
+        $sanitized = $request->all();
+        $test = $sanitized['password'] ?? null;
+        if ($test) {
+            $sanitized['password'] = bcrypt($sanitized['password']);
+        }
 
+        return $this->repository->store($sanitized);
+    }
 }
