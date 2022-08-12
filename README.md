@@ -12,5 +12,11 @@
 
 <p>3 - <code>composer install</code></p>
 
-<p>4 - <code>php artisan serve --port=9000</code></p>
+<p>4 - <code>php artisan migrate:refresh</code></p>
+
+<p>5 - <code>php artisan serve --port=9000</code></p>
+
+<p>6 - Abra o navegador e acesse o endereço<code>http://127.0.0.1:9000/api/doc</code></p>
+
+<h2>Esse será o endereço do swagger rodando localmente</h2>
 
